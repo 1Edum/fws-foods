@@ -1,9 +1,28 @@
 import CategoryList from "./_components/category-list";
 import Header from "./_components/header";
+import ProductList from "./_components/product-list";
 import Search from "./_components/search";
 import Image from "next/image";
+import { Button } from "./_components/ui/button";
+import { ChevronRightIcon } from "lucide-react";
+import { db } from "./_lib/prisma";
 
-export default function Home() {
+const Home = async () => {
+  const products = await db.product.findMany({
+    where: {
+      discountPercentage: {
+        gt: 0,
+      },
+    },
+    take: 10,
+    include: {
+      restaurant: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
   return (
     <>
       <Header />
@@ -24,6 +43,17 @@ export default function Home() {
         quality={100}
       />
       </div>
+      <div className="pt-6 space-y-4">
+        <div className="flex items-center justify-between px-5">
+        <h2 className="font-semibold">Pedidos Recomendados</h2>
+        <Button variant="ghost" className="text-primary p-0 hover:bg-transparent h-fit">Ver todos
+        <ChevronRightIcon size={16}/>
+        </Button>
+        </div>
+        <ProductList products={products}/>
+      </div>
     </>
   );
 }
+
+export default Home;
