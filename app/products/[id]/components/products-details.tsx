@@ -44,7 +44,7 @@ const ProductsDetails = ({ product, extraProducts }: ProductsDetailsProps) => {
 
   return (
     <div >
-      <div className="p-5">
+      <div className="relative p-5 z-40 rounded-t-3lg rounded-3xl mt-[-1.5rem] bg-white">
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-6 w-6">
             <Image
