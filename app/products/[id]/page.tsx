@@ -2,8 +2,8 @@
 import { db } from "@/app/_lib/prisma";
 import { notFound } from "next/navigation";
 import React from "react";
-import ProductImage from "./components/products-image";
-import ProductsDetails from "./components/products-details";
+import ProductImage from "./_components/products-image";
+import ProductsDetails from "./_components/products-details";
 interface ProductsPageProps {
   params: {
     id: string;
