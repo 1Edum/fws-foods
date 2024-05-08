@@ -2,24 +2,24 @@
 
 import { Button } from "@/app/_components/ui/button";
 import { Product } from "@prisma/client";
-import { ChevronLeftIcon } from "lucide-react";
+import { ChevronLeftIcon, HeartIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-interface ProductImageProps {
-  product: Pick<Product, "name" | "imageUrl">;
+interface RestaurantImageProps {
+  restaurant: Pick<Product, "name" | "imageUrl">;
 }
 
-const ProductImage = ({ product }: ProductImageProps) => {
+const RestaurantImage = ({ restaurant }: RestaurantImageProps) => {
   const router = useRouter();
 
   const handleBackClick = () => router.back();
 
   return (
-    <div className="relative h-[360px] w-full">
+    <div className="relative h-[215px] w-full">
       <Image
-        src={product.imageUrl}
-        alt={product.name}
+        src={restaurant.imageUrl}
+        alt={restaurant.name}
         fill
         className="object-cover"
       />
@@ -31,8 +31,13 @@ const ProductImage = ({ product }: ProductImageProps) => {
       >
         <ChevronLeftIcon />
       </Button>
+
+    <Button className="absolute right-4 top-4 rounded-full bg-muted-foreground">
+      <HeartIcon size={20} className="fill-white "/>
+    </Button>
+
     </div>
   );
 };
 
-export default ProductImage;
+export default RestaurantImage;
