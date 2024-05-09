@@ -1,6 +1,6 @@
 import React from "react";
 import RestaurantImage from "./_components/restaurant-image";
-import RestaurantsDetails from "./_components/restaurants-details";
+import RestaurantsDetails from "./_components/restaurant-details";
 import { notFound } from "next/navigation";
 import { db } from "@/app/_lib/prisma";
 

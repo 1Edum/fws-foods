@@ -4,7 +4,7 @@ import ProductList from "./_components/product-list";
 import Search from "./_components/search";
 import Image from "next/image";
 import { Button } from "./_components/ui/button";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, HeartIcon } from "lucide-react";
 import { db } from "./_lib/prisma";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
